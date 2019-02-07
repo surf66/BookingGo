@@ -1,9 +1,12 @@
 import React from 'react';
+import Form from './form';
 
 export default class App extends React.Component {
   render() {
     return(
-      <p>App works!</p>
+      <div className="container">
+        <Form />
+      </div>
     );
   }
 }

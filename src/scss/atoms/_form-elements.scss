@@ -1,0 +1,29 @@
+.field-container {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    width: 100%;
+    background: $light-grey;
+    border: 1px solid $dark-grey;
+    border-radius: 0;
+    padding: 0.8rem 1rem;
+    -webkit-appearance: none;
+
+    &:disabled {
+      color: $grey;
+      border: 1px solid $grey;
+    }
+
+    &:active,
+    &:focus {
+      border: 1px solid $blue;
+      outline: none;
+    }
+  }
+}
