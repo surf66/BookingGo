@@ -8,7 +8,16 @@
     "sass:build": "node-sass ./src/scss --output ./web/css --output-style compressed",
     "sass:watch": "node-sass ./src/scss --output ./web/css --output-style compressed --watch",
     "prestart": "webpack && npm run sass:build",
-    "start": "concurrently --kill-others \"npm run sass:watch\" \"npm run webpack-dev-server\""
+    "start": "concurrently --kill-others \"npm run sass:watch\" \"npm run webpack-dev-server\"",
+    "unit-test": "jest --coverage"
+  },
+  "jest": {
+    "setupFiles": [
+      "./tests/unit/jestsetup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "repository": {
     "type": "git",
@@ -29,6 +38,10 @@
     "babel-polyfill": "^6.26.0",
     "concurrently": "^4.1.0",
     "copy-webpack-plugin": "^4.6.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.9.1",
+    "enzyme-to-json": "^3.3.5",
+    "jest": "^24.1.0",
     "node-sass": "^4.11.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
