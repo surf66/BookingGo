@@ -53,11 +53,3 @@ test('should call getSuggestions when component receives updated props', () => {
 
   expect(SuggestionList.prototype.getSuggestions).toHaveBeenCalledWith(mockNewProps.searchTerm);
 });
-// spyOn(SuggestionsService, 'getSuggestions').and.returnValue(mockSuggestions);
-/*
-async getSuggestions(searchTerm) {
-  let suggestions = await SuggestionsService.getSuggestions(searchTerm);
-  console.log(suggestions);
-  this.setState({ suggestions });
-}
-*/
