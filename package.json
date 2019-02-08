@@ -9,13 +9,19 @@
     "sass:watch": "node-sass ./src/scss --output ./web/css --output-style compressed --watch",
     "prestart": "webpack && npm run sass:build",
     "start": "concurrently --kill-others \"npm run sass:watch\" \"npm run webpack-dev-server\"",
-    "unit-test": "jest --coverage"
+    "test": "npm run unit-test && npm run integration-test",
+    "unit-test": "jest --coverage",
+    "integration-test": "node ./npm-scripts/integration-test",
+    "integration-test-ui": "concurrently --kill-others \"npm start\" \"cypress open\""
   },
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/js/**/*.js",
       "!src/js/**/index.js"
+    ],
+    "testPathIgnorePatterns": [
+      "/tests/integration/"
     ],
     "setupFiles": [
       "./tests/unit/jestsetup.js"
@@ -43,6 +49,7 @@
     "babel-polyfill": "^6.26.0",
     "concurrently": "^4.1.0",
     "copy-webpack-plugin": "^4.6.0",
+    "cypress": "^3.1.5",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "enzyme-to-json": "^3.3.5",
@@ -53,6 +60,7 @@
     "react-dom": "^16.8.1",
     "react-redux": "^6.0.0",
     "redux": "^4.0.1",
+    "shelljs": "^0.8.3",
     "throttle-debounce": "^2.1.0",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
