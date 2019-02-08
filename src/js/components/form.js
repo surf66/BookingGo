@@ -7,8 +7,10 @@ const Form = () => {
     <section>
       <form className="pickup-form">
         <h1>Let's find your ideal car</h1>
-        <SearchField />
-        <SuggestionList />
+        <div className="search">
+          <SearchField />
+          <SuggestionList />
+        </div>
       </form>
     </section>
   );

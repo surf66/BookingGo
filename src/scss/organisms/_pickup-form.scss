@@ -6,4 +6,13 @@
     width: 30rem;
     margin: 0 auto;
   }
+
+  .search {
+    position: relative;
+
+    .list {
+      position: absolute;
+      width: 100%;
+    }
+  }
 }

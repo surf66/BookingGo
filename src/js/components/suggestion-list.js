@@ -18,6 +18,7 @@ export class SuggestionList extends React.Component {
     }
 
     this.getSuggestions = this.getSuggestions.bind(this);
+    this.highlightSearchTerm = this.highlightSearchTerm.bind(this);
   }
   
   componentWillReceiveProps(newProps) {
@@ -26,11 +27,15 @@ export class SuggestionList extends React.Component {
 
   render() {
     return(
-      <React.Fragment>
+      <div className={this.state.suggestions.length > 0 ? 'list open' : 'list'}>
         {this.state.suggestions.map((suggestion, index) => {
-          return <p key={index}>{suggestion.name}, {suggestion.city}, {suggestion.country}</p>;
+          var suggestionName = this.highlightSearchTerm(suggestion.name, this.props.searchTerm);
+          return <div className="item" key={index}>
+            <p className="title" dangerouslySetInnerHTML={{__html: suggestionName}}></p>
+            {suggestion.region && suggestion.country && <p className="description">{suggestion.region}, {suggestion.country}</p>}
+          </div>;
         })}
-      </React.Fragment>
+      </div>
     );
   }
 
@@ -43,6 +48,10 @@ export class SuggestionList extends React.Component {
 
     this.setState({ suggestions: [] });
     return;
+  }
+
+  highlightSearchTerm(suggestion, searchTerm) {
+    return suggestion.toLowerCase().replace(searchTerm, `<span>${searchTerm}</span>`);
   }
 }
 

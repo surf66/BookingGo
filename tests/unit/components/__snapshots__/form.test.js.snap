@@ -8,8 +8,12 @@ exports[`should match snapshot 1`] = `
     <h1>
       Let's find your ideal car
     </h1>
-    <Connect(SearchField) />
-    <Connect(SuggestionList) />
+    <div
+      className="search"
+    >
+      <Connect(SearchField) />
+      <Connect(SuggestionList) />
+    </div>
   </form>
 </section>
 `;
