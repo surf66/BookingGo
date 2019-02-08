@@ -44,6 +44,16 @@ test('should set suggestions in state when getSuggestions is called and suggesti
   expect(SuggestionList.prototype.setState).toHaveBeenCalledWith({ suggestions: mockSuggestions });
 });
 
+test('should set suggestions in state to an empty array when searchTerm is less than 1', async () => {
+  SuggestionList.prototype.setState = jasmine.createSpy();
+  const mockSearchTerm = 't';
+  const component = shallow(<SuggestionList />);
+
+  await component.instance().getSuggestions(mockSearchTerm);
+
+  expect(SuggestionList.prototype.setState).toHaveBeenCalledWith({ suggestions: [] });
+});
+
 test('should call getSuggestions when component receives updated props', () => {
   SuggestionList.prototype.getSuggestions = jasmine.createSpy();
   const component = mount(<SuggestionList />);
