@@ -16,7 +16,7 @@ export class SearchField extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    this.storeSearchTerm = this.storeSearchTerm.bind(this);
+    this.storeSearchTerm = debounce(1000, this.storeSearchTerm);
   }
 
   render() {
@@ -30,13 +30,11 @@ export class SearchField extends React.Component {
 
   handleChange(event) {
     let searchTerm = event.target.value;
-    if(searchTerm.length > 1) {
-      this.storeSearchTerm(searchTerm);
-    }
+    this.storeSearchTerm(searchTerm);
   }
 
   storeSearchTerm(searchTerm) {
-    debounce(1000, this.props.setSearchTerm(searchTerm));
+    this.props.setSearchTerm(searchTerm);
   }
 }
 

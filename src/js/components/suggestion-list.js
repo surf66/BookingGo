@@ -35,8 +35,14 @@ export class SuggestionList extends React.Component {
   }
 
   async getSuggestions(searchTerm) {
-    let suggestions = await SuggestionsService.getSuggestions(searchTerm);
-    this.setState({ suggestions });
+    if(searchTerm.length > 1) {
+      let suggestions = await SuggestionsService.getSuggestions(searchTerm);
+      this.setState({ suggestions });
+      return;
+    }
+
+    this.setState({ suggestions: [] });
+    return;
   }
 }
 
