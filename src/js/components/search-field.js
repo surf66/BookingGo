@@ -31,7 +31,7 @@ export class SearchField extends React.Component {
   handleChange(event) {
     let searchTerm = event.target.value;
     if(searchTerm.length > 1) {
-      this.setSearchTerm(searchTerm);
+      this.storeSearchTerm(searchTerm);
     }
   }
 

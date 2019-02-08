@@ -4,13 +4,13 @@ import SuggestionList from './suggestion-list';
 
 const Form = () => {
   return(
-    <div className="container">
+    <section>
       <form className="pickup-form">
         <h1>Let's find your ideal car</h1>
         <SearchField />
         <SuggestionList />
       </form>
-    </div>
+    </section>
   );
 }
 

@@ -1,4 +1,9 @@
 .pickup-form {
   padding: 2rem;
   background: $yellow;
+
+  @media screen and (min-width: $medium) {
+    width: 30rem;
+    margin: 0 auto;
+  }
 }
