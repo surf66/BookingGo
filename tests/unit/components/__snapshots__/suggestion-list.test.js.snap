@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot when no suggestions provided 1`] = `<SuggestionList />`;
+
+exports[`should match snapshot when suggestions provided 1`] = `
+<SuggestionList>
+  <p
+    key="0"
+  >
+    Manchester Airport
+    , 
+    Manchester
+    , 
+    UK
+  </p>
+  <p
+    key="1"
+  >
+    Wigan Pier
+    , 
+    Greater Manchester
+    , 
+    UK
+  </p>
+</SuggestionList>
+`;

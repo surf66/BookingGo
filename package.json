@@ -12,6 +12,11 @@
     "unit-test": "jest --coverage"
   },
   "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/js/**/*.js",
+      "!src/js/**/index.js"
+    ],
     "setupFiles": [
       "./tests/unit/jestsetup.js"
     ],
@@ -42,9 +47,13 @@
     "enzyme-adapter-react-16": "^1.9.1",
     "enzyme-to-json": "^3.3.5",
     "jest": "^24.1.0",
+    "jest-fetch-mock": "^2.1.0",
     "node-sass": "^4.11.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "throttle-debounce": "^2.1.0",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14"
