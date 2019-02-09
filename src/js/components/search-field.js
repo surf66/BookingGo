@@ -10,20 +10,26 @@ function mapDispatchToProps(dispatch) {
   })
 }
 
+function mapStateToProps(state) {
+  return {
+    isRequesting: state.isRequesting,
+  }
+}
+
 export class SearchField extends React.Component {
 
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    this.storeSearchTerm = debounce(1000, this.storeSearchTerm);
+    this.storeSearchTerm = debounce(200, this.storeSearchTerm);
   }
 
   render() {
     return(
-      <div className="field-container">
+      <div className={this.props.isRequesting ? 'field-container loading' : 'field-container'}>
         <label htmlFor="pickup-location">Pick-up Location</label>
-        <input type="text" id="pickup-location" name="pickup-location" placeholder="city, airport, station, region, district..." onChange={this.handleChange} />
+        <input type="text" id="pickup-location" name="pickup-location" placeholder="city, airport, station, region, district..." onChange={this.handleChange} autocomplete="off" />
       </div>
     );
   }
@@ -38,4 +44,4 @@ export class SearchField extends React.Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(SearchField);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchField);

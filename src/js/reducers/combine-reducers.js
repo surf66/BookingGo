@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import searchTerm from './search-term';
+import isRequesting from './is-requesting';
 
 const reducers = combineReducers({
-  searchTerm
+  searchTerm,
+  isRequesting
 });
 
 export default reducers;

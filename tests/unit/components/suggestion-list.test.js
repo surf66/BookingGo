@@ -23,24 +23,28 @@ test('should match snapshot when suggestions provided', () => {
 
 test('should call SuggestionService when getSuggestions is called', async () => {
   spyOn(SuggestionsService, 'getSuggestions').and.returnValue(mockSuggestions);
+  let isRequestingMock = jasmine.createSpy();
   
   const mockSearchTerm = 'testsearchterm';
-  const component = shallow(<SuggestionList />);
+  const component = shallow(<SuggestionList isRequesting={isRequestingMock} />);
 
   await component.instance().getSuggestions(mockSearchTerm);
 
+  expect(isRequestingMock).toHaveBeenCalledWith(true);
   expect(SuggestionsService.getSuggestions).toHaveBeenCalledWith(mockSearchTerm);
 });
 
 test('should set suggestions in state when getSuggestions is called and suggestions are returned', async () => {
   SuggestionList.prototype.setState = jasmine.createSpy();
+  let isRequestingMock = jasmine.createSpy();
   spyOn(SuggestionsService, 'getSuggestions').and.returnValue(mockSuggestions);
   
   const mockSearchTerm = 'testsearchterm';
-  const component = shallow(<SuggestionList />);
+  const component = shallow(<SuggestionList isRequesting={isRequestingMock} />);
 
   await component.instance().getSuggestions(mockSearchTerm);
 
+  expect(isRequestingMock).toHaveBeenCalledWith(true);
   expect(SuggestionList.prototype.setState).toHaveBeenCalledWith({ suggestions: mockSuggestions });
 });
 

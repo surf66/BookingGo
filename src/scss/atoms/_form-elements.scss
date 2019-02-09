@@ -2,6 +2,22 @@
   display: flex;
   flex-direction: column;
 
+  &.loading::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid $grey;
+    border-top-color: $blue;
+    animation: spinner .6s linear infinite;
+  }
+
   label {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
@@ -13,7 +29,6 @@
     border: 1px solid $dark-grey;
     border-radius: 0;
     padding: 0.8rem 1rem;
-    -webkit-appearance: none;
 
     &:disabled {
       color: $grey;
@@ -23,7 +38,10 @@
     &:active,
     &:focus {
       border: 1px solid $blue;
-      outline: none;
     }
   }
+}
+
+@keyframes spinner {
+  to { transform: rotate(360deg); }
 }

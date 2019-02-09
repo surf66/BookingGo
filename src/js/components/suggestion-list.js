@@ -1,6 +1,14 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { IsRequestingActions } from '../actions/index';
 import SuggestionsService from '../services/suggestions-service';
+
+function mapDispatchToProps(dispatch) {
+  return ({
+    isRequesting: bindActionCreators(IsRequestingActions.isRequesting, dispatch)
+  })
+}
 
 function mapStateToProps(state) {
   return {
@@ -41,8 +49,11 @@ export class SuggestionList extends React.Component {
 
   async getSuggestions(searchTerm) {
     if(searchTerm.length > 1) {
+      this.props.isRequesting(true);
       let suggestions = await SuggestionsService.getSuggestions(searchTerm);
-      this.setState({ suggestions });
+      this.setState({ suggestions }, () => {
+        this.props.isRequesting(false);
+      });
       return;
     }
 
@@ -55,4 +66,4 @@ export class SuggestionList extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, null)(SuggestionList);
+export default connect(mapStateToProps, mapDispatchToProps)(SuggestionList);

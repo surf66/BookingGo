@@ -20,7 +20,7 @@ test('should call setSearchTerm when handleChange is called with a searchTerm wi
 
   setTimeout(() => {
     expect(SearchField.prototype.setSearchTerm).toHaveBeenCalledWith(mockEvent.target.value);
-  }, 1000);
+  }, 200);
 });
 
 test('should not call setSearchTerm when handleChange is called with a searchTerm with length less than 1', () => {
@@ -46,5 +46,5 @@ test('should call setSearchTerm prop with searchTerm when storeSearchTerm is cal
 
   setTimeout(() => {
     expect(setSearchTermMock).toHaveBeenCalledWith(searchTerm);
-  }, 1000);
+  }, 200);
 });
