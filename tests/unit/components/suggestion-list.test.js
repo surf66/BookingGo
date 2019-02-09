@@ -14,7 +14,7 @@ test('should match snapshot when no suggestions provided', () => {
 });
 
 test('should match snapshot when suggestions provided', () => {
-  const component = mount(<SuggestionList />);
+  const component = mount(<SuggestionList searchTerm="Manchester" />);
   component.setState({ suggestions: mockSuggestions });
   component.update();
 
@@ -26,7 +26,7 @@ test('should call SuggestionService when getSuggestions is called', async () => 
   let isRequestingMock = jasmine.createSpy();
   
   const mockSearchTerm = 'testsearchterm';
-  const component = shallow(<SuggestionList isRequesting={isRequestingMock} />);
+  const component = shallow(<SuggestionList isRequesting={isRequestingMock} searchTerm="Manchester" />);
 
   await component.instance().getSuggestions(mockSearchTerm);
 

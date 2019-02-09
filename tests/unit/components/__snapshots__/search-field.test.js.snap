@@ -11,6 +11,7 @@ exports[`should match snapshot 1`] = `
       Pick-up Location
     </label>
     <input
+      autoComplete="off"
       id="pickup-location"
       name="pickup-location"
       onChange={[Function]}

@@ -14,7 +14,7 @@ context('Suggestions', () => {
     cy.get('#pickup-location').type('67235423')
     cy.get('.list').should('be.visible')
     cy.get('.list .item').should('have.length', 1)
-    cy.get('.list .item .title').invoke('text').should('equal', 'no results found')
+    cy.get('.list .item .title').invoke('text').should('equal', 'No results found')
   });
 
   it('should not show suggestions when search term is less than 2 characters', () => {

@@ -29,7 +29,7 @@ export class SearchField extends React.Component {
     return(
       <div className={this.props.isRequesting ? 'field-container loading' : 'field-container'}>
         <label htmlFor="pickup-location">Pick-up Location</label>
-        <input type="text" id="pickup-location" name="pickup-location" placeholder="city, airport, station, region, district..." onChange={this.handleChange} autocomplete="off" />
+        <input type="text" id="pickup-location" name="pickup-location" placeholder="city, airport, station, region, district..." onChange={this.handleChange} autoComplete="off" />
       </div>
     );
   }

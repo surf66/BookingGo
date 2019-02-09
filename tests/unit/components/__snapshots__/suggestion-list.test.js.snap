@@ -9,7 +9,9 @@ exports[`should match snapshot when no suggestions provided 1`] = `
 `;
 
 exports[`should match snapshot when suggestions provided 1`] = `
-<SuggestionList>
+<SuggestionList
+  searchTerm="Manchester"
+>
   <div
     className="list open"
   >
@@ -21,7 +23,7 @@ exports[`should match snapshot when suggestions provided 1`] = `
         className="title"
         dangerouslySetInnerHTML={
           Object {
-            "__html": "manchester airport",
+            "__html": "<span>Manchester</span> airport",
           }
         }
       />

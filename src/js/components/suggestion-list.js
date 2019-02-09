@@ -62,7 +62,7 @@ export class SuggestionList extends React.Component {
   }
 
   highlightSearchTerm(suggestion, searchTerm) {
-    return suggestion.toLowerCase().replace(searchTerm, `<span>${searchTerm}</span>`);
+    return suggestion.toLowerCase().replace(searchTerm.toLowerCase(), `<span>${searchTerm}</span>`);
   }
 }
 
