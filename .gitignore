@@ -3,3 +3,4 @@ web
 coverage
 tests/integration/videos
 tests/integration/screenshots
+.DS_Store
