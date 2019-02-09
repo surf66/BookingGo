@@ -1,6 +1,19 @@
 # BookingGo
 BookingGo Tech Test
 
+### Tech
+
+- Build
+  - NPM
+  - Webpack
+- Application
+  - React
+  - Redux
+  - SASS
+- Testing
+  - Jest (with Enzyme)
+  - Cypress
+
 ### Run Locally
 Firstly, install dependencies with `npm i`. Start the application with `npm start` and then navigate to `http://localhost:8080` in a browser.
 
